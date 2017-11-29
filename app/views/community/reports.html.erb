@@ -1,0 +1,42 @@
+<h1>Report</h1>
+
+<table>
+	<tr>
+		<th> First name </th>
+		<th> last name </th>
+		<th> City </th>
+		<th> Phone number </th>
+	</tr>
+	
+	<% @custs.each do |c| %>
+
+	
+	<tr>
+		<td> <%= c.firstname  %> </td>
+		<td> <%= c.lastname %> </td>
+		<td> <%= c.city %> </td>
+		<td><%= number_to_phone(c.phone) %></td>
+	</tr>
+	<% end %>
+	</table>
+<table>
+
+	<tr>
+		<th> Product name  </th>
+		<th> Price </th>
+		<th> Category</th>
+		
+		
+	</tr>
+	
+	<% @prduct.each do |c| %>
+	<tr>
+		<td> <%= c.productname  %> </td>
+		<td> <%= c.saleprice %> </td>
+		<td> <%= c.category_id %> </td>
+	</tr>
+	<% end %>
+	
+
+</table>
+

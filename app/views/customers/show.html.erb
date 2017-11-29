@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @customer.username %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @customer.admin %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @customer.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @customer.lastname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @customer.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @customer.phone %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @customer.address1 %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @customer.address2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @customer.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @customer.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @customer.zip %>
+</p>
+
+<p>
+  <strong>Addlnotes:</strong>
+  <%= @customer.addlnotes %>
+</p>
+
+<hr>
+<% @cust_orders.each do |co| %>
+	<p> Order: </p>
+	<p> <%= co.saledate %>: <%= co.salenotes %> </p>
+	<% @order_items = co.order_item %>
+	<% @order_items.each do |oi| %>
+		<p> <%= Product.find(oi.product_id).productname %> : <%= number_to_currency(oi.saleprice) %> </p>
+	<% end %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

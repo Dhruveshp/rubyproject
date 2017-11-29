@@ -1,0 +1,78 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= @product.productname %></strong>
+</p>
+
+<p>
+  <strong>Homepage:?<%= @product.homepage %></strong>
+</p>
+ 
+<p>
+   <%= @product.description %>
+</p>
+
+<p>
+  <%= image_tag @product.productimage, size: "100x100" %>
+</p>
+
+
+<p>
+  <strong>Category:</strong>
+  <%= @product.category_id %>
+</p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @product.supplier_id %>
+</p>
+
+<p>
+  <strong>Saleprice:</strong>
+  <%= @product.saleprice %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @product.status %>
+</p>
+
+<p>
+  <strong>Purchaseprice:</strong>
+  <%= @product.purchaseprice %>
+</p>
+
+<p>
+  <strong>Qtyonhand:</strong>
+  <%= @product.qtyonhand %>
+</p>
+
+<p>
+  <strong>Reorderpoint:</strong>
+  <%= @product.reorderpoint %>
+</p>
+
+<p>
+  <strong>Reorderqty:</strong>
+  <%= @product.reorderqty %>
+</p>
+
+<hr>
+
+<h1>Product Reviews</h1>
+<% @prodreviews = @product.review %>
+<table>
+	<tr>
+		<th>Submit by</th>
+		<th>Comments</th>
+	<tr>
+<% @prodreviews.each do |pr| %>
+	<tr>
+	<td><%= Customer.find(pr.customer_id).username %> </td>
+	<td><%= pr.comments %> </td>
+	</tr>
+<% end %>
+</table>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

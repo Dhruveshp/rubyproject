@@ -1,0 +1,14 @@
+<h1>Your Orders</h1>
+
+
+<% @cust_orders.each do |co| %>
+	<% @order_items = co.order_item %>
+		<% @order_items.each do |oi| %>
+			<p> 
+				<table><tr>
+				<td><%= Product.find(oi.product_id).productname %></td>
+				<td><%= button_to "Submit Review", new_review_path, :method => :get, params: { product_id: oi.product_id, customer_id: session[:user_id] }  %> </td>
+				</tr></table>
+			</p>
+		<% end %>
+<% end %>
